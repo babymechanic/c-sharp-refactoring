@@ -1,6 +1,4 @@
-using System;
-
-namespace com.thoughtworks.refactoring
+namespace item_orders
 {
 public class LineItem {
 	private string desc;

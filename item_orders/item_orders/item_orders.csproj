@@ -39,9 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="com\thoughtworks\refactoring\LineItem.cs" />
-    <Compile Include="com\thoughtworks\refactoring\Order.cs" />
-    <Compile Include="com\thoughtworks\refactoring\OrderReceipt.cs" />
+    <Compile Include="LineItem.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="OrderReceipt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
