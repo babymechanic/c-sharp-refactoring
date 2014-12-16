@@ -40,9 +40,9 @@ namespace com.thoughtworks.refactoring
 				throw new ArgumentException("Year cannot be less than 2000 or more than 2012");
 
         try {
-				string monthString = dateAndTimeString.Substring(5, 7);
-            month = int.Parse(monthString);
-			} catch (IndexOutOfRangeException e) {
+				string monthString = dateAndTimeString.Substring(5, 2);
+            	month = int.Parse(monthString);
+			} catch (ArgumentOutOfRangeException e) {
             throw new ArgumentException("Month string is less than 2 characters");
 			} catch (FormatException e) {
             throw new ArgumentException("Month is not an integer");
@@ -51,9 +51,9 @@ namespace com.thoughtworks.refactoring
             throw new ArgumentException("Month cannot be less than 1 or more than 12");
 
         try {
-				string dateString = dateAndTimeString.Substring(8, 10);
+				string dateString = dateAndTimeString.Substring(8, 2);
             date = int.Parse(dateString);
-			} catch (IndexOutOfRangeException e) {
+			} catch (ArgumentOutOfRangeException e) {
             throw new ArgumentException("Date string is less than 2 characters");
 			} catch (FormatException e) {
             throw new ArgumentException("Date is not an integer");
@@ -61,14 +61,14 @@ namespace com.thoughtworks.refactoring
         if (date < 1 || date > 31)
             throw new ArgumentException("Date cannot be less than 1 or more than 31");
 
-			if (dateAndTimeString.Substring(11, 12).Equals("Z")) {
+			if (dateAndTimeString.Substring(11, 1).Equals("Z")) {
             hour = 0;
             minute = 0;
         } else {
             try {
-					string hourString = dateAndTimeString.Substring(11, 13);
+					string hourString = dateAndTimeString.Substring(11, 2);
                 hour = int.Parse(hourString);
-				} catch (IndexOutOfRangeException e) {
+				} catch (ArgumentOutOfRangeException e) {
                 throw new ArgumentException("Hour string is less than 2 characters");
             } catch (FormatException e) {
                 throw new ArgumentException("Hour is not an integer");
@@ -77,9 +77,9 @@ namespace com.thoughtworks.refactoring
                 throw new ArgumentException("Hour cannot be less than 0 or more than 23");
 
             try {
-					string minuteString = dateAndTimeString.Substring(14, 16);
+					string minuteString = dateAndTimeString.Substring(14, 2);
                 minute = int.Parse(minuteString);
-				} catch (IndexOutOfRangeException e) {
+				} catch (ArgumentOutOfRangeException e) {
                 throw new ArgumentException("Minute string is less than 2 characters");
             } catch (FormatException e) {
                 throw new ArgumentException("Minute is not an integer");

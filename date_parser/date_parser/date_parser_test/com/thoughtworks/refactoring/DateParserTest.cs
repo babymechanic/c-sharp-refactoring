@@ -6,14 +6,10 @@ namespace com.thoughtworks.refactoring
 
 [TestFixture]
 public class DateParserTest {
+
     [Test]
     public void shouldThrowExceptionIfYearStringCannotBeParsed() {
-        try {
-            new DateParser("111").parse();
-            Assert.Fail("Should have failed since the year string is less than 4 characters");
-        } catch (ArgumentException e) {
-            Assert.That(e.Message, Is.EqualTo("Year string is less than 4 characters"));
-        }
+			Assert.Throws<ArgumentException> (() => new DateParser ("111").parse ());
     }
 
     [Test]
@@ -101,15 +97,9 @@ public class DateParserTest {
     }
 
     [Test]
+	[ExpectedException(typeof(ArgumentException))]
     public void shouldThrowExceptionIfDateIsMoreThan31() {
-        try {
-            new DateParser("2012-12-32").parse();
-            Assert.Fail("Should have failed since the date is more than 31");
-        }
-        catch (ArgumentException e)
-        {
-            Assert.That(e.Message, Is.EqualTo("Date cannot be less than 1 or more than 31"));
-        }
+       new DateParser("2012-12-32").parse();
     }
 
     [Test]
