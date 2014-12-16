@@ -31,7 +31,7 @@ namespace com.thoughtworks.refactoring
         try {
 				string yearString = dateAndTimeString.Substring(0, 4);
 				year = int.Parse(yearString);
-			} catch (IndexOutOfRangeException e) {
+			} catch (ArgumentOutOfRangeException e) {
             throw new ArgumentException("Year string is less than 4 characters");
         } catch (FormatException e) {
 				throw new ArgumentException("Year is not an integer");
@@ -89,7 +89,7 @@ namespace com.thoughtworks.refactoring
 
         }
 
-		var dateTime = new DateTime(year,month -1, date, hour, minute,0,0,DateTimeKind.Utc);
+		var dateTime = new DateTime(year,month, date, hour, minute,0,0,DateTimeKind.Utc);
 		return dateTime;
     }
 }
